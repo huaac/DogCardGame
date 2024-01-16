@@ -19,6 +19,8 @@ GameObject:
   - component: {fileID: 6697133201888133056}
   - component: {fileID: 3831795374836613458}
   - component: {fileID: 2484702017176438415}
+  - component: {fileID: -317147851312358715}
+  - component: {fileID: -6283861649615536952}
   m_Layer: 6
   m_Name: Card1
   m_TagString: Untagged
@@ -189,6 +191,34 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+  - eventID: 2
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: -317147851312358715}
+          m_TargetAssemblyTypeName: TargetClick, Assembly-CSharp
+          m_MethodName: OnTargetClick
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: -6283861649615536952}
+          m_TargetAssemblyTypeName: IncrementClick, Assembly-CSharp
+          m_MethodName: IncrementClicks
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!61 &4681161441197790347
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -319,3 +349,36 @@ MonoBehaviour:
   syncInterval: 0
   canvas: {fileID: 0}
   zoomCard: {fileID: 5022924965050209980, guid: 7e7b79c76be2a684eab00b000a85d760, type: 3}
+--- !u!114 &-317147851312358715
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4681161441197790336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6c4ffd4001ec8340b463336b92acd8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
+  playerManager: {fileID: 0}
+--- !u!114 &-6283861649615536952
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4681161441197790336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1621c6cd2be7cf4c830b401d601ffdb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
+  playerManager: {fileID: 0}
+  NumberOfClicks: 0

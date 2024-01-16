@@ -81,4 +81,42 @@ public class PlayerManager : NetworkBehaviour
             }
         }
     }
+
+    [Command]
+    public void CmdTargetSelfCard()
+    {
+        TargetSelfCard();
+    }
+
+    [Command]
+    public void CmdTargetOtherCard(GameObject target)
+    {
+        NetworkIdentity opponentIdentity = target.GetComponent<NetworkIdentity>();
+        TargetOtherCard(opponentIdentity.connectionToClient);
+    }
+
+    [TargetRpc]
+    void TargetSelfCard()
+    {
+        Debug.Log("Targeted Self");
+    }
+
+    [TargetRpc]
+    void TargetOtherCard(NetworkConnection target) // this get printed in the other clients logs
+    {
+        Debug.Log("Targeted Other");
+    }
+
+    [Command]
+    public void CmdIncrementClick(GameObject card)
+    {
+        RpcIncrementClick(card);
+    }
+
+    [ClientRpc]
+    void RpcIncrementClick(GameObject card)
+    {
+        card.GetComponent<IncrementClick>().NumberOfClicks++;
+        Debug.Log("Clicked: " + card.GetComponent<IncrementClick>().NumberOfClicks);
+    }
 }
