@@ -5,12 +5,12 @@ using Mirror;
 
 public class TargetClick : NetworkBehaviour
 {
-    public PlayerManager playerManager;
+    public PlayManager playerManager;
 
     public void OnTargetClick()
     {
         NetworkIdentity networkIdentity = NetworkClient.connection.identity;
-        playerManager = networkIdentity.GetComponent<PlayerManager>();
+        playerManager = networkIdentity.GetComponent<PlayManager>();
 
         if(isOwned)
         {

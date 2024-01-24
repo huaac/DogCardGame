@@ -5,7 +5,7 @@ using Mirror;
 
 public class IncrementClick : NetworkBehaviour
 {
-    public PlayerManager playerManager;
+    public PlayManager playerManager;
 
     [SyncVar]
     public int NumberOfClicks = 0;
@@ -13,7 +13,7 @@ public class IncrementClick : NetworkBehaviour
     public void IncrementClicks()
     {
         NetworkIdentity networkIdentity = NetworkClient.connection.identity;
-        playerManager = networkIdentity.GetComponent<PlayerManager>();
+        playerManager = networkIdentity.GetComponent<PlayManager>();
         playerManager.CmdIncrementClick(gameObject);
     }
 }

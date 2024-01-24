@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Mirror;
 
-public class CDragDrop : MonoBehaviour
+public class CDragDrop : NetworkBehaviour
 {
     private bool isDragging = false;
     private bool isDraggable = true;
@@ -16,10 +17,13 @@ public class CDragDrop : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        if(!isOwned) {isDraggable = false;}
+        if(!isOwned) {Debug.Log("Not Owned");}
     }
     
     public void StartDrag()
     {
+        if(!isOwned) {Debug.Log("not owned");}
         if(!isDraggable) return;
         isDragging = true;
         // start_parent = transform.parent.gameObject;

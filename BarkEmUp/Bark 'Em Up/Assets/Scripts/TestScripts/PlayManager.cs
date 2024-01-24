@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Mirror;
 
-public class PlayerManager : NetworkBehaviour
+public class PlayManager : NetworkBehaviour
 {
 
     public GameObject card1;

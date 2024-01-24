@@ -6,7 +6,7 @@ using Mirror;
 public class DragDrop : NetworkBehaviour
 {
     public GameObject canvas;
-    public PlayerManager playerManager;
+    public PlayManager playerManager;
     // public GameObject drop_zone;
 
     private bool is_dragging = false;
@@ -58,7 +58,7 @@ public class DragDrop : NetworkBehaviour
             transform.SetParent(p_drop_zone.transform,false);
             isDraggable = false;
             NetworkIdentity networkIdentity = NetworkClient.connection.identity;
-            playerManager = networkIdentity.GetComponent<PlayerManager>();
+            playerManager = networkIdentity.GetComponent<PlayManager>();
             playerManager.PlayCard(gameObject);
 
         }
