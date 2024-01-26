@@ -5,10 +5,20 @@ using Mirror;
 
 public class GameManager : NetworkBehaviour
 {
-    public int turnsPlayed = 0;
+    public GameObject card;
+    public Material material;
 
-    public void UpdateTurnsPlayed()
+    void Start()
     {
-        turnsPlayed++;
+        // material = card.GetComponent
     }
+
+
+    //Old script
+    // public int turnsPlayed = 0;
+
+    // public void UpdateTurnsPlayed()
+    // {
+    //     turnsPlayed++;
+    // }
 }

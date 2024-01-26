@@ -58,17 +58,17 @@ public class PlayManager : NetworkBehaviour
 
         if(isServer)
         {
-            UpdateTurnsPlayed();
+            // UpdateTurnsPlayed();
         }
     }
 
-    [Server]
-    void UpdateTurnsPlayed()
-    {
-        GameManager gm = GameObject.Find("GameManager").GetComponent<GameManager>();
-        gm.UpdateTurnsPlayed();
-        RpcLogToClients("Turns Played " + gm.turnsPlayed);
-    }
+    // [Server]
+    // void UpdateTurnsPlayed()
+    // {
+    //     GameManager gm = GameObject.Find("GameManager").GetComponent<GameManager>();
+    //     gm.UpdateTurnsPlayed();
+    //     RpcLogToClients("Turns Played " + gm.turnsPlayed);
+    // }
 
     [ClientRpc]
     void RpcLogToClients(string message)

@@ -549,7 +549,7 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
+  m_Color: {r: 0.8679245, g: 0.8206939, b: 0.6918832, a: 1}
   m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
@@ -557,7 +557,7 @@ Light:
   m_CookieSize: 10
   m_Shadows:
     m_Type: 2
-    m_Resolution: -1
+    m_Resolution: 1
     m_CustomResolution: -1
     m_Strength: 1
     m_Bias: 0.05
@@ -1492,9 +1492,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8680592667065244996, guid: 1b9ff4c5f0ea5ce4aa38fee6a18bffd5, type: 3}
+      propertyPath: card
+      value: 
+      objectReference: {fileID: 2079139848503345168, guid: a2562d4b2a07a4043b0f2fbdbe949f2c, type: 3}
+    - target: {fileID: 8680592667065244996, guid: 1b9ff4c5f0ea5ce4aa38fee6a18bffd5, type: 3}
+      propertyPath: materialNumber
+      value: 
+      objectReference: {fileID: 2100000, guid: e072b812ea755824ca9fd46375cf0382, type: 2}
     - target: {fileID: 8680592667065244997, guid: 1b9ff4c5f0ea5ce4aa38fee6a18bffd5, type: 3}
       propertyPath: sceneId
       value: 1699685185
+      objectReference: {fileID: 0}
+    - target: {fileID: 8680592667065244997, guid: 1b9ff4c5f0ea5ce4aa38fee6a18bffd5, type: 3}
+      propertyPath: serverOnly
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8680592667065244999, guid: 1b9ff4c5f0ea5ce4aa38fee6a18bffd5, type: 3}
       propertyPath: m_Name
