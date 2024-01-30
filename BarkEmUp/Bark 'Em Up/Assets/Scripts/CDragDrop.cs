@@ -7,6 +7,7 @@ public class CDragDrop : NetworkBehaviour
 {
     private bool isDragging = false;
     private bool isDraggable = true;
+    public MousePositionTracker table;
 
     private Rigidbody rb;
 
@@ -17,6 +18,7 @@ public class CDragDrop : NetworkBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        table = GameObject.Find("Green Table").GetComponent<MousePositionTracker>();
         if(!isOwned) {isDraggable = false;}
         if(!isOwned) {Debug.Log("Not Owned");}
     }
@@ -26,14 +28,23 @@ public class CDragDrop : NetworkBehaviour
         if(!isOwned) {Debug.Log("not owned");}
         if(!isDraggable) return;
         isDragging = true;
+
         // start_parent = transform.parent.gameObject;
         // start_position = transform.position;
+
+        Debug.Log("started");
     }
 
     public void EndDrag()
     {
         if(!isDraggable) return;
         isDragging = false;
+
+        // rb.velocity = Vector3.zero;
+        // // rb.gravityScale = 5f;
+        // rb.velocity = new Vector3(0,-50,0);
+        // rb.AddForce(Vector3.down*rb.mass,ForceMode.Force);
+        
         // if (is_over_drop_zone)
         // {
         //     transform.SetParent(p_drop_zone.transform,false);
@@ -54,6 +65,7 @@ public class CDragDrop : NetworkBehaviour
     void Update()
     {
         if(Input.GetMouseButtonUp(0)) {isDragging = false;}
+        Debug.Log(isDragging);
     }
 
     void OnMouseDrag()
@@ -61,15 +73,33 @@ public class CDragDrop : NetworkBehaviour
         if(!isDraggable) {return;}
         isDragging = true;
         // Vector3 mousePosition = Input.mousePosition;
-        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x,Input.mousePosition.y,70f));
+        rb.velocity = Vector3.zero;
 
-        mousePosition.y = 7;
+        Vector3 newWorldPosition = new Vector3(table.currentMousePosition.x,10f, table.currentMousePosition.z);
 
-        // Debug.Log(mousePosition);
+        Vector3 direction = (Vector3)(newWorldPosition - transform.position);
 
-        // transform.position = new Vector3(mousePosition.x, 5, mousePosition.y);
-        transform.position = Vector3.Lerp(transform.position, mousePosition, Time.deltaTime + 10f);
+        var difference = newWorldPosition - transform.position;
+        var speed = 50*difference;
+        rb.velocity = speed;
+        // rb.AddForce(direction.normalized*5f,ForceMode.Impulse);
+
     }
+
+    // void OnMouseDrag()
+    // {
+    //     if(!isDraggable) {return;}
+    //     isDragging = true;
+    //     // Vector3 mousePosition = Input.mousePosition;
+    //     Vector3 mousePosition = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x,Input.mousePosition.y,70f));
+
+    //     mousePosition.y = 7;
+
+    //     // Debug.Log(mousePosition);
+
+    //     // transform.position = new Vector3(mousePosition.x, 5, mousePosition.y);
+    //     transform.position = Vector3.Lerp(transform.position, mousePosition, Time.deltaTime + 10f);
+    // }
 
     // public void CeaseDrag()
     // {

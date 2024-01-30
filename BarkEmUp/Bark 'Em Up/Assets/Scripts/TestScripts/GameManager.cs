@@ -8,9 +8,30 @@ public class GameManager : NetworkBehaviour
     public GameObject card;
     public Material material;
 
-    void Start()
+    public static GameManager instance;
+
+    public GameState state;
+    
+    // public static event Action<GameState> onGameStateChanged;
+
+    void Awake()
     {
-        // material = card.GetComponent
+        instance = this;
+        Debug.Log("game manager awakened");
+    }
+
+    public void UpdateGameState(GameState newState)
+    {
+        state = newState;
+
+        switch(newState)
+        {
+
+        }
+    }
+
+    public enum GameState{
+
     }
 
 
