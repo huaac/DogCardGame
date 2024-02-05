@@ -103,3 +103,26 @@ MonoBehaviour:
   card1: {fileID: 2079139848503345168, guid: a2562d4b2a07a4043b0f2fbdbe949f2c, type: 3}
   playerArea: {fileID: 0}
   enemyArea: {fileID: 0}
+  numMaterials:
+  - {fileID: 2100000, guid: c7ff968aea0612040bcb9fe4d5b155af, type: 2}
+  - {fileID: 2100000, guid: 7048922d823c39247af7e2c121236f6a, type: 2}
+  - {fileID: 2100000, guid: 46e85976815810c41b05498bb7a8a07a, type: 2}
+  - {fileID: 2100000, guid: ca630065a380c024ca7a1adbb7def2e6, type: 2}
+  - {fileID: 2100000, guid: 87b6b77632672bc42b5bdb91df976320, type: 2}
+  - {fileID: 2100000, guid: ead7d01f9d1ff6c46a972afb32d5f00c, type: 2}
+  - {fileID: 2100000, guid: b2d0f818786e5b44495725e5e86fc42e, type: 2}
+  - {fileID: 2100000, guid: 208ecba9a5dc56e44a600a49e7744388, type: 2}
+  - {fileID: 2100000, guid: 5df277e6d9c8cf14b8eaadfce89adcc3, type: 2}
+  - {fileID: 2100000, guid: c51e661239c7a1541b19cd56400f343e, type: 2}
+  - {fileID: 2100000, guid: c226034488d8a0142bcee48758a8ac60, type: 2}
+  - {fileID: 2100000, guid: 97dcf84748602a849b5392d9e8bdc961, type: 2}
+  - {fileID: 2100000, guid: b8e2580717a305844b1be2d7ae5ddd52, type: 2}
+  - {fileID: 2100000, guid: aa081e70776311a43b07f8106c2839a9, type: 2}
+  - {fileID: 2100000, guid: 46fa3c07ebc80f04fb5a69c80eab5513, type: 2}
+  - {fileID: 2100000, guid: dede43045e2ebae4989e91e907091fe1, type: 2}
+  - {fileID: 2100000, guid: 012b8f4fcff0bf840b55acd3d8cb7ec7, type: 2}
+  - {fileID: 2100000, guid: 53923a85e699ced48a8ac45cfcab9414, type: 2}
+  - {fileID: 2100000, guid: e6cf16aed4ed9274ea9f684771142779, type: 2}
+  - {fileID: 2100000, guid: ec893957a4825f148896a4284bb8db43, type: 2}
+  - {fileID: 2100000, guid: 4c61a771ed328bb45be86916c140e444, type: 2}
+  - {fileID: 2100000, guid: 5b3d0a6b56f986a45a8dbd9a5a0ae517, type: 2}

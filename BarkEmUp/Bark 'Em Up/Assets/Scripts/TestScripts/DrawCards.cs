@@ -5,15 +5,20 @@ using Mirror;
 
 public class DrawCards : NetworkBehaviour
 {
+    public List<Material> numMaterials = new List<Material>();
+
     public PlayerManager playerManager;
 
     public void OnClick()
     {
+        int cardNumber = Random.Range(0, numMaterials.Count);
+
         NetworkIdentity networkIdentity = NetworkClient.connection.identity;
         playerManager = networkIdentity.GetComponent<PlayerManager>();
-        playerManager.CmdDealCards();
+        playerManager.CmdDealCards(cardNumber);
 
     }
+
 
     //old script
     // public PlayerManager playerManager;

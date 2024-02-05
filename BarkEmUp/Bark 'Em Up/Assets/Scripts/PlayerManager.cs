@@ -10,6 +10,12 @@ public class PlayerManager : NetworkBehaviour
     public GameObject playerArea;
     public GameObject enemyArea;
 
+    [SerializeField]
+    private List<Material> numMaterials = new List<Material>();
+
+    // [SyncVar (hook = nameof(SetMaterial))]
+    // private Material currMat;
+
     public override void OnStartClient()
     {
         base.OnStartClient();
@@ -29,17 +35,25 @@ public class PlayerManager : NetworkBehaviour
         // Debug.Log("Logging: " + cards[0]);
     }
 
-    [Command]
-    public void CmdDealCards() //when client makes request for server to do something; must always start w Cmd
-    {
-        for (int i=0; i<2; i++)
-        {
-            GameObject card = Instantiate(card1,new Vector3(0,0,0), Quaternion.identity);
+    // private void SetMaterial(Material oldMat, Material newMat)
+    // {
 
-            // GameObject card = Instantiate(cards[Random.Range(0,cards.Count)],new Vector3(0,0,-18), Quaternion.identity);
-            NetworkServer.Spawn(card,connectionToClient); //makes the client own authority over the game object
-            RpcShowCard(card,"Dealt");
-        }
+    // }
+
+    [Command]
+    public void CmdDealCards(int cardnum) //when client makes request for server to do something; must always start w Cmd
+    {
+        GameObject card = Instantiate(card1,new Vector3(0,0,0), Quaternion.identity);
+        
+        //change material of the card. getting materials returns a copy of the array, so you have to replace it entirely
+        Material[] replacedMats = card.GetComponent<MeshRenderer>().materials;
+        replacedMats[1] = numMaterials[cardnum];
+        card.GetComponent<MeshRenderer>().materials = replacedMats;
+        card.transform.rotation = Quaternion.Euler(0,180,0);
+
+        // GameObject card = Instantiate(cards[Random.Range(0,cards.Count)],new Vector3(0,0,-18), Quaternion.identity);
+        NetworkServer.Spawn(card,connectionToClient); //makes the client own authority over the game object
+        RpcShowCard(card,"Dealt");
     }
 
     [ClientRpc]

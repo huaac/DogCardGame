@@ -6,7 +6,7 @@ using Mirror;
 public class GameManager : NetworkBehaviour
 {
     public GameObject card;
-    public Material material;
+    // public Material material;
 
     public static GameManager instance;
 
@@ -20,18 +20,42 @@ public class GameManager : NetworkBehaviour
         Debug.Log("game manager awakened");
     }
 
+    void Start()
+    {
+        // UpdateGameState(GameState.DrawPhase);
+    }
+
     public void UpdateGameState(GameState newState)
     {
         state = newState;
 
         switch(newState)
         {
-
+            case GameState.DrawPhase:
+                HandleDrawPhase();
+                break;
+            case GameState.DiscardPhase:
+                break;
+            case GameState.BettingPhase:
+                break;
+            case GameState.RevealPhase:
+                break;
+            // default:
+                // throw new ArgumentOutOfRangeException(nameof(newState), newState, null);
         }
+        // onGameStateChanged?.Invoke(newState);
+    }
+
+    private void HandleDrawPhase()
+    {
+        // lets each player draw 2 cards
     }
 
     public enum GameState{
-
+        DrawPhase,
+        DiscardPhase,
+        BettingPhase,
+        RevealPhase
     }
 
 
